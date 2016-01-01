@@ -6,7 +6,6 @@ public class PickUp : MonoBehaviour
 
     //Variables
     public GameObject pickupCanvas;                 //The canvas we are going to be spawning and deleting -- Prefab version
-    public Inventory invScript;                     //The inventory Manager
     public GameObject inventory;                    //The inventory gameobject
 
     private GameObject pickupCanvas2;               //The canvas we are going to be spawning and deleting -- non-Prefab version
@@ -15,7 +14,6 @@ public class PickUp : MonoBehaviour
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory");
-        invScript = inventory.GetComponent<Inventory>();
     }
 
     //When something enters the trigger check if it is the player and then spawn the pickupCanvas
@@ -57,9 +55,6 @@ public class PickUp : MonoBehaviour
         //Destroying "this" and destroying the pickupCanvas
         Destroy(this.gameObject);
         pickupCanvas2 = GameObject.FindGameObjectWithTag("Pickup Canvas");
-        invScript.itemInv[0].itemID = 0;                                        //setting ItemID
-        invScript.itemInv[0].itemName = "Wood";                                 //setting ItemName
-        invScript.itemInv[0].itemDesc = "Wood is aweasome";                     //setting ItemDesc
         Destroy(pickupCanvas2);
     }
 
